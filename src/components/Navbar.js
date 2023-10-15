@@ -1,8 +1,8 @@
 export default function Navbar() {
   return (
-    <div>
+    <nav>
       <a href="/">Home</a> &nbsp;
       <a href="/basic">Basic</a>
-    </div>
+    </nav>
   );
 }
