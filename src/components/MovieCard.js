@@ -4,7 +4,7 @@ const MovieCard = ({ imdbID, title, posterUrl }) => {
   const navigateToDetail = () => {
     try {
       console.log("Clicked movie with imdbID:", imdbID);
-      window.location.href = `/movie/${imdbID}`;
+      window.location.href = `/movies/${imdbID}`;
     } catch (error) {
       console.error("Navigation error:", error);
     }

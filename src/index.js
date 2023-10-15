@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Basic from "./components/Basic";
+import MovieInfo from "./components/MovieInfo";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,15 @@ const router = createBrowserRouter([
       <div>
         <Navbar />
         <Basic />
+      </div>
+    ),
+  },
+  {
+    path: "/movies/:imdbID",
+    element: (
+      <div>
+        <Navbar />
+        <MovieInfo />
       </div>
     ),
   },

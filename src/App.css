@@ -1,5 +1,6 @@
 html {
   background-color: #18191aff;
+  color: white;
 }
 .App {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -34,7 +35,7 @@ nav a {
 nav a :hover {
   text-decoration: underline;
 }
-nav a.router-link-exact-active {
+nav a {
   background-color: #242526ff;
   color: #00568cff;
   font-weight: bold;
