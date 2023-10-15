@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Parent from "./components/Parent";
 import Navbar from "./components/Navbar";
 import Basic from "./components/Basic";
 
@@ -15,15 +14,6 @@ const router = createBrowserRouter([
       <div>
         <Navbar />
         <App />
-      </div>
-    ),
-  },
-  {
-    path: "/parent",
-    element: (
-      <div>
-        <Navbar />
-        <Parent />
       </div>
     ),
   },
