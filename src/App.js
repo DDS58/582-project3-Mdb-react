@@ -1,9 +1,14 @@
 import "./App.css";
+// import MovieCard from "./components/MovieCard";
+// import SearchBar from "./components/SearchBar";
+import MoviesList from "./components/MoviesList";
 
 function App() {
   return (
     <div className="App">
-      <h1>React</h1>
+      {/* <MovieCard />
+      <SearchBar /> */}
+      <MoviesList />
     </div>
   );
 }
