@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
+import MarkAsSeenButton from "./MarkAsSeenButton";
+
 import { useParams } from "react-router-dom";
+import config from "./configMstore";
 
 const MovieDetail = ({}) => {
   const { imdbID } = useParams();
@@ -11,7 +14,7 @@ const MovieDetail = ({}) => {
   useEffect(() => {
     async function fetchMovieData() {
       try {
-        const response = await fetch(`http://localhost:3001/movies/${imdbID}`);
+        const response = await fetch(`${config.apiUrl}movies/${imdbID}`);
         const movieData = await response.json();
         setFetchedMovie(movieData);
       } catch (error) {
@@ -22,6 +25,10 @@ const MovieDetail = ({}) => {
 
     fetchMovieData();
   }, [imdbID]);
+
+  const updateSeenStatus = (newSeenStatus) => {
+    setFetchedMovie({ ...fetchedMovie, watched: newSeenStatus });
+  };
 
   return (
     <div>
@@ -69,6 +76,13 @@ const MovieDetail = ({}) => {
             <p>
               <strong>imdbRating:</strong> {fetchedMovie.imdbRating}
             </p>
+            <div className="usersInput">
+              <MarkAsSeenButton
+                imdbID={imdbID}
+                seen={fetchedMovie.watched}
+                onUpdateSeen={updateSeenStatus}
+              />
+            </div>
 
             <div className="movie-reviews">
               <h3>User Reviews</h3>
