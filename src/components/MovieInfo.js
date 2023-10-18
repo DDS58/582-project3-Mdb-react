@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MarkAsSeenButton from "./MarkAsSeenButton";
+import UserReviewInput from "./UserReviewInput";
 
 import { useParams } from "react-router-dom";
 import config from "./configMstore";
@@ -28,6 +29,23 @@ const MovieDetail = ({}) => {
 
   const updateSeenStatus = (newSeenStatus) => {
     setFetchedMovie({ ...fetchedMovie, watched: newSeenStatus });
+  };
+
+  const addReview = async (newReview) => {
+    const updatedReviews = [...fetchedMovie.reviews, newReview];
+    setFetchedMovie({ ...fetchedMovie, reviews: updatedReviews });
+
+    try {
+      await fetch(`${config.apiUrl}movies/${imdbID}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ reviews: updatedReviews }),
+      });
+    } catch (error) {
+      console.error("Error updating movie data:", error);
+    }
   };
 
   return (
@@ -82,6 +100,7 @@ const MovieDetail = ({}) => {
                 seen={fetchedMovie.watched}
                 onUpdateSeen={updateSeenStatus}
               />
+              <UserReviewInput onReviewSubmitted={addReview} />
             </div>
 
             <div className="movie-reviews">
