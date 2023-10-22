@@ -5,25 +5,25 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Basic from "./components/Basic";
+import AddMovieForm from "./components/AddMovieForm";
 import MovieInfo from "./components/MovieInfo";
+import { UserProvider } from "./hook/userStore";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
       <div>
-        <Navbar />
         <App />
       </div>
     ),
   },
   {
-    path: "/basic",
+    path: "/add-movie",
     element: (
       <div>
         <Navbar />
-        <Basic />
+        <AddMovieForm />
       </div>
     ),
   },
@@ -41,7 +41,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   </React.StrictMode>
 );
 
