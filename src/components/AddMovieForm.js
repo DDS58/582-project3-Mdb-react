@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import config from "./configMstore";
+import config from "../hook/configMstore";
 
 const AddMovieForm = () => {
   const [movieData, setMovieData] = useState({

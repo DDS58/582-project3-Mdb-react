@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import config from "./configMstore";
+import config from "../hook/configMstore";
 
 const MarkAsSeenButton = ({ imdbID, seen, onUpdateSeen }) => {
   const [buttonText, setButtonText] = useState(seen ? "Watched" : "Watch");
