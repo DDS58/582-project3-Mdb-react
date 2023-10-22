@@ -62,7 +62,7 @@ const AddMovieForm = () => {
         <input
           type="text"
           placeholder="imdbID"
-          value={movieData.imdbID}
+          value={movieData.imdbID || ""}
           onChange={(e) =>
             setMovieData({ ...movieData, imdbID: e.target.value })
           }
@@ -70,7 +70,7 @@ const AddMovieForm = () => {
         <input
           type="text"
           placeholder="Poster img"
-          value={movieData.Poster}
+          value={movieData.Poster || ""}
           onChange={(e) =>
             setMovieData({ ...movieData, Poster: e.target.value })
           }
@@ -80,7 +80,7 @@ const AddMovieForm = () => {
         <input
           type="text"
           placeholder="Title"
-          value={movieData.Title}
+          value={movieData.Title || ""}
           onChange={(e) =>
             setMovieData({ ...movieData, Title: e.target.value })
           }
@@ -88,13 +88,13 @@ const AddMovieForm = () => {
         <input
           type="text"
           placeholder="Year"
-          value={movieData.Year}
+          value={movieData.Year || ""}
           onChange={(e) => setMovieData({ ...movieData, Year: e.target.value })}
         />
         <input
           type="text"
           placeholder="Genre"
-          value={movieData.Genre}
+          value={movieData.Genre || ""}
           onChange={(e) =>
             setMovieData({ ...movieData, Genre: e.target.value })
           }
@@ -102,7 +102,7 @@ const AddMovieForm = () => {
         <input
           type="text"
           placeholder="Director"
-          value={movieData.Director}
+          value={movieData.Director || ""}
           onChange={(e) =>
             setMovieData({ ...movieData, Director: e.target.value })
           }
@@ -110,13 +110,13 @@ const AddMovieForm = () => {
         <input
           type="text"
           placeholder="Plot"
-          value={movieData.Plot}
+          value={movieData.Plot || ""}
           onChange={(e) => setMovieData({ ...movieData, Plot: e.target.value })}
         />
         <input
           type="text"
           placeholder="Actors"
-          value={movieData.Actors}
+          value={movieData.Actors || ""}
           onChange={(e) =>
             setMovieData({ ...movieData, Actors: e.target.value })
           }
@@ -124,7 +124,7 @@ const AddMovieForm = () => {
         <input
           type="text"
           placeholder="Language"
-          value={movieData.Language}
+          value={movieData.Language || ""}
           onChange={(e) =>
             setMovieData({ ...movieData, Language: e.target.value })
           }
@@ -132,7 +132,7 @@ const AddMovieForm = () => {
         <input
           type="text"
           placeholder="Country"
-          value={movieData.Country}
+          value={movieData.Country || ""}
           onChange={(e) =>
             setMovieData({ ...movieData, Country: e.target.value })
           }
@@ -140,7 +140,7 @@ const AddMovieForm = () => {
         <input
           type="text"
           placeholder="Rated"
-          value={movieData.Rated}
+          value={movieData.Rated || ""}
           onChange={(e) =>
             setMovieData({ ...movieData, Rated: e.target.value })
           }
@@ -148,7 +148,7 @@ const AddMovieForm = () => {
         <input
           type="text"
           placeholder="Runtime"
-          value={movieData.Runtime}
+          value={movieData.Runtime || ""}
           onChange={(e) =>
             setMovieData({ ...movieData, Runtime: e.target.value })
           }
@@ -156,7 +156,7 @@ const AddMovieForm = () => {
         <input
           type="text"
           placeholder="Writer"
-          value={movieData.Writer}
+          value={movieData.Writer || ""}
           onChange={(e) =>
             setMovieData({ ...movieData, Writer: e.target.value })
           }
@@ -164,7 +164,7 @@ const AddMovieForm = () => {
         <input
           type="text"
           placeholder="IMDb Rating"
-          value={movieData.imdbRating}
+          value={movieData.imdbRating || ""}
           onChange={(e) =>
             setMovieData({ ...movieData, imdbRating: e.target.value })
           }

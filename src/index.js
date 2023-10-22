@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import AddMovieForm from "./components/AddMovieForm";
 import MovieInfo from "./components/MovieInfo";
 import { UserProvider } from "./hook/userStore";
+import Header from "./components/Header";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
     path: "/movies/:imdbID",
     element: (
       <div>
+        <Header />
         <Navbar />
         <MovieInfo />
       </div>

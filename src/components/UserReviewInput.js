@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import RateDown from "./RateDown";
 
-const UserReviewInput = ({ onReviewSubmitted }) => {
+const UserReviewInput = ({ onReviewSubmitted, currentUserRole }) => {
   const [reviewText, setReviewText] = useState("");
   const [selectedRating, setSelectedRating] = useState("10");
 
@@ -10,8 +10,6 @@ const UserReviewInput = ({ onReviewSubmitted }) => {
   };
 
   const handleSubmitReview = () => {
-    const currentUserRole = "admin";
-
     const review = {
       user: currentUserRole,
       text: reviewText,

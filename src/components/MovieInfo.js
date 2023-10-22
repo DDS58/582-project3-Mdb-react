@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from "react";
 import MarkAsSeenButton from "./MarkAsSeenButton";
 import UserReviewInput from "./UserReviewInput";
-
+import DeleteMovieButton from "./DeleteMovieButton";
+import EditMovieForm from "./EditMovieForm";
 import { useParams } from "react-router-dom";
-import config from "./configMstore";
+import config from "../hook/configMstore";
+import { useUser } from "../hook/userStore";
 
-const MovieDetail = ({}) => {
+const MovieDetail = () => {
   const { imdbID } = useParams();
   const [fetchedMovie, setFetchedMovie] = useState({
     watched: false,
     reviews: [],
   });
+  const [editingMode, setEditingMode] = useState(false);
+  const {
+    state: { role },
+  } = useUser();
 
   useEffect(() => {
     async function fetchMovieData() {
@@ -46,6 +52,21 @@ const MovieDetail = ({}) => {
     } catch (error) {
       console.error("Error updating movie data:", error);
     }
+  };
+
+  const handleMovieDeleted = () => {
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 1500);
+  };
+
+  const toggleEditMode = () => {
+    setEditingMode(!editingMode);
+  };
+
+  const handleMovieUpdate = (updatedMovie) => {
+    setFetchedMovie(updatedMovie);
+    setEditingMode(false);
   };
 
   return (
@@ -100,9 +121,28 @@ const MovieDetail = ({}) => {
                 seen={fetchedMovie.watched}
                 onUpdateSeen={updateSeenStatus}
               />
-              <UserReviewInput onReviewSubmitted={addReview} />
+              <UserReviewInput
+                onReviewSubmitted={addReview}
+                currentUserRole={role}
+              />
             </div>
-
+            {role === "admin" && (
+              <div className="admin-mode">
+                <button className="edit-button" onClick={toggleEditMode}>
+                  Edit Movie
+                </button>
+                {editingMode && (
+                  <EditMovieForm
+                    movie={fetchedMovie}
+                    onMovieUpdated={handleMovieUpdate}
+                  />
+                )}
+                <DeleteMovieButton
+                  imdbID={imdbID}
+                  onDelete={handleMovieDeleted}
+                />
+              </div>
+            )}
             <div className="movie-reviews">
               <h3>User Reviews</h3>
               <ul>
