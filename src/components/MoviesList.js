@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import SearchBar from "./SearchBar";
+import config from "../hook/configMstore";
 
 const MoviesList = () => {
   const [movies, setMovies] = useState([]);
@@ -12,7 +13,7 @@ const MoviesList = () => {
 
   const fetchMovies = async () => {
     try {
-      const response = await fetch("http://localhost:3001/");
+      const response = await fetch(`${config.apiUrl}`);
       const data = await response.json();
       setMovies(data);
     } catch (error) {
